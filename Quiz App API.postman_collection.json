@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "558fbb58-4582-4b89-8e6b-1ba28c3aa481",
+		"name": "Quiz App API",
+		"description": "Postman collection for the Quiz App API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14276333",
+		"_collection_link": "https://dark-firefly-157495.postman.co/workspace/f595989a-e310-4983-8979-3f8b9753b0b6/collection/14276333-558fbb58-4582-4b89-8e6b-1ba28c3aa481?action=share&source=collection_link&creator=14276333"
+	},
+	"item": [
+		{
+			"name": "Create Quiz",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Sample Quiz Title\",\n  \"questions\": [\n    {\n      \"id\": 1,\n      \"text\": \"What is the capital of France?\",\n      \"options\": [\"Berlin\", \"Madrid\", \"Paris\", \"Rome\"],\n      \"correct_option\": 2\n    },\n    {\n      \"id\": 2,\n      \"text\": \"What is 2 + 2?\",\n      \"options\": [\"3\", \"4\", \"5\", \"6\"],\n      \"correct_option\": 1\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/quizzes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"quizzes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Quiz by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/quizzes/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"quizzes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Submit Answer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"quiz_id\": 1,\n  \"user_id\": \"user123\",\n  \"question_id\": 1,\n  \"selected_option\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/quizzes/submit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"quizzes",
+						"submit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Results",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/quizzes/1/results/user123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"quizzes",
+						"1",
+						"results",
+						"user123"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
